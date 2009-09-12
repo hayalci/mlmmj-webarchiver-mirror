@@ -1,0 +1,8 @@
+mlmmj-webarchiver ChangeLog
+
+2009-09-12 - version 0.80
+  * Added MHonArc support and removed hypermail.
+  * Added a nice style based on roundcube.net.
+  * Added scripts for archive structure.
+
+All versions before where created for hypermail and not relevant anymore.

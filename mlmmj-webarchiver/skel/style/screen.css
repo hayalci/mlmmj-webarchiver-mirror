@@ -1,0 +1,169 @@
+body
+{
+  color: #000000;
+}
+
+body, td, th, div, p, h1, h2, h2, li, address
+{
+  font-family: "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: #000000;
+}
+
+#mailinglists {
+  margin: 28px;
+}
+
+h1
+{
+  font-size: 16px;
+  color: #666666;
+  margin: 20px 0px 5px 0px;
+  border-bottom: 1px dotted #cccccc;
+}
+
+h2 {
+  margin-left: 8px;
+  font-size: 14px;
+  color: #666666;
+}
+
+h3, dt {
+  margin-left: 8px;
+  font-size: 12px;
+  color: #666666;
+}
+
+div.mlarchlist h4 {
+  margin: 2px 2px 2px 16px;
+  font-size: 12px;
+  font-weight:normal;
+}
+
+dd {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+div.listinfo {
+  margin-left: 8px;
+  margin-right: 8px;
+  border: 1px dotted #cccccc;
+  background-color: #eee;
+}
+
+div.listinfo p {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+address {
+	text-align: right;
+	color: #888;
+        border-top:             1px solid #aaa;
+        border-bottom:          1px solid #aaa;
+}
+
+address a {
+	text-decoration: none;
+	color: #88f;
+}
+
+
+/* /mail-archive/ */
+#toplinks {
+        margin:                 0;
+        border-top:             1px solid #aaa;
+        border-bottom:          1px solid #aaa;
+        color:                  #aaa;
+        font-size:              80%;
+}
+
+#toplinks a {
+        text-decoration:        none;
+}
+
+#threadtoplinks {
+        float:                  left;
+        text-align:             left;
+}
+
+#datetoplinks {
+        text-align:             right;
+}
+
+#headers, #message, #didx, #tidx, #references, #followups {
+        margin:                 8px 0;
+        padding:                2px 10px;
+        border:                 1px dotted #888;
+        background-color:       #f0f0f0;
+}
+
+#headers table {
+        font-size:              80%;
+}
+
+#references caption, #followups caption {
+	text-align: left;
+	font-weight: bold;
+	font-size: 12px;
+}
+#headers table td.headername {
+        width:                  90px;
+        text-align:             right;
+        font-weight:            bold;
+}
+
+#banner {
+  position: relative;
+  margin: 12px 23px 15px 23px;
+}
+
+#header {
+  position: relative;
+  height: 56px;
+  background: url(../images/banner_bg.gif) top left repeat-x #ffffff;
+}
+
+#header div.banner-left {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 17px;
+  height: 56px;
+}
+
+#header div.banner-text {
+  position: absolute;
+  left: 20px;
+  bottom: 12px;
+  font-size: 18px;
+  color: #ebebeb;
+}
+
+#header div.banner-right {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 10px;
+  height: 56px;
+}
+
+#topnav {
+  position: absolute;
+  right: 20px;
+  bottom: 8px;
+  text-align: right;
+  color: #ebebeb;
+  font-size: 11px;
+}
+
+#topnav a {
+  color: #ebebeb;
+  font-size: 11px;
+  text-decoration: none;
+}
+
+#topnav a:hover {
+  text-decoration: underline;
+}

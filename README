@@ -1,0 +1,47 @@
+README for mlmmj-webarchiver
+=============================
+
+This piece of code isn't finished yet nor complete. If you need
+some feature, just add it and provide patches. You can try to
+request it (you may also give example code and stuff if you want!)
+- also you may clean up the code ;)
+
+Examples:
+  http://www.csync.org/archive/
+  http://www.libssh.org/archive/
+
+But anyway, this is how it works (for now):
+
+The config directory must be copied to /etc/
+You have to change all settings to fit your needs, nothing is checked
+by now, so take care! (normally nothing should break, you may just
+get some... 'different' results at all ;)
+
+To use this script, you have to set the following control files:
+
+control/webarchive = emtpy/path
+    emtpy file means that the archive should be created in the default
+    webarchive directory
+    file with path defines the path to put the archive in.
+
+control/webarchiveprotected = file
+  (this is just a normal htpasswd file created by htaccess. If it exists,
+   the archive will be protected by htaccess - so check if your server
+   allows the usage of .htaccess files!)
+
+
+IMPORTANT!!!
+-------------
+
+You need the following binaries installed:
+- hypermail
+- perl (for getting the file creation times)
+- cat
+- mkdir
+
+Most of them should be avaiable on every linux (and maybe bsd) box...
+
+If you have any problems, feel free to give a shout and report bugs!
+
+Thanks,
+Andreas Schneider <mail@cynapses.org>
