@@ -13,21 +13,19 @@
 <html lang="en">
 <head>
  <title>$SUBJECTNA$</title>
- <link rel="stylesheet" type="text/css" media="screen" href="../style/screen.css">
+ <link rel="stylesheet" type="text/css" media="screen" href="../../style/screen.css">
 </head>
 <body>
  <div id="banner">
   <div id="header">
-   <div class="banner-left"><img src="../images/banner_left.gif" width="17" height="56" border="0" alt="" /></div>
+   <div class="banner-left"><img src="../../images/banner_left.gif" width="17" height="56" border="0" alt="" /></div>
    <div class="banner-text">$IDXTITLE$</div>
-   <div class="banner-right"><img src="../images/banner_right.gif" width="10" height="56" alt="" /></div>
+   <div class="banner-right"><img src="../../images/banner_right.gif" width="10" height="56" alt="" /></div>
   </div>
   <div id="topnav">
    <a href="/">home</a>
    |
-   <a href="../search.php">search</a>
-   |
-   <a href="..">other lists</a>
+   <a href="..">month and year index</a>
    |
    <a href="$TIDXFNAME$#$MSGNUM$">thread index</a>
    |
@@ -39,7 +37,7 @@
 </MSGPGBEGIN>
 
 <MSGPGEND>
-   <address>Archive administrator: postmaster@lists.roundcube.net</address>
+   <address>Archive administrator: postmaster@lists.cynapses.org</address>
   </div>
  </div>
 </body>
@@ -66,7 +64,7 @@
 <html lang="en">
 <head>
  <title>$IDXTITLE$</title>
- <link rel="stylesheet" type="text/css" media="screen" href="../style/screen.css">
+ <link rel="stylesheet" type="text/css" media="screen" href="../../style/screen.css">
 </head>
 <body>
 </IDXPGBEGIN>
@@ -97,7 +95,7 @@
 <html lang="en">
 <head>
  <title>$TIDXTITLE$</title>
- <link rel="stylesheet" type="text/css" media="screen" href="../style/screen.css">
+ <link rel="stylesheet" type="text/css" media="screen" href="../../style/screen.css">
 </head>
 <body>
 </TIDXPGBEGIN>
@@ -128,16 +126,14 @@
 <LISTBEGIN>
  <div id="banner">
   <div id="header">
-   <div class="banner-left"><img src="../images/banner_left.gif" width="17" height="56" border="0" alt="" /></div>
+   <div class="banner-left"><img src="../../images/banner_left.gif" width="17" height="56" border="0" alt="" /></div>
    <div class="banner-text">$IDXTITLE$</div>
-   <div class="banner-right"><img src="../images/banner_right.gif" width="10" height="56" alt="" /></div>
+   <div class="banner-right"><img src="../../images/banner_right.gif" width="10" height="56" alt="" /></div>
   </div>
   <div id="topnav">
    <a href="/">home</a>
    |
-   <a href="/search.php">search</a>
-   |
-   <a href="..">other lists</a>
+   <a href="..">month and year index</a>
    |
    <a href="$TIDXFNAME$">thread index</a>
    |
@@ -160,7 +156,7 @@
 <LISTEND>
 </ul>
 </div>
-   <address>Archive administrator: postmaster.roundcube.net</address>
+   <address>Archive administrator: postmaster.cynapses.org</address>
   </div>
  </div>
 </LISTEND>
@@ -180,16 +176,14 @@
 <THEAD>
  <div id="banner">
   <div id="header">
-   <div class="banner-left"><img src="../images/banner_left.gif" width="17" height="56" border="0" alt="" /></div>
+   <div class="banner-left"><img src="../../images/banner_left.gif" width="17" height="56" border="0" alt="" /></div>
    <div class="banner-text">$IDXTITLE$</div>
-   <div class="banner-right"><img src="../images/banner_right.gif" width="10" height="56" alt="" /></div>
+   <div class="banner-right"><img src="../../images/banner_right.gif" width="10" height="56" alt="" /></div>
   </div>
   <div id="topnav">
    <a href="/">home</a>
    |
-   <a href="/search.php">search</a>
-   |
-   <a href="..">other lists</a>
+   <a href="..">month and year index</a>
    |
    <a href="$TIDXFNAME$">thread index</a>
    |
@@ -206,7 +200,7 @@
 <TFOOT>
 </ul> 
 </div>
-   <address>Archive administrator: postmaster.roundcube.net</address>
+   <address>Archive administrator: postmaster.cynapses.org</address>
   </div>
  </div>
 </TFOOT>
