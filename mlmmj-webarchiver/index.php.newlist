@@ -12,19 +12,19 @@
 <html lang="en">
 <head>
 <title><?php echo $mlist;?> archives by month and year</title>
- <link rel="stylesheet" type="text/css" media="screen" href="../../style/screen.css">
+ <link rel="stylesheet" type="text/css" media="screen" href="../style/screen.css">
 </head>
 <body>
  <div id="banner">
   <div id="header">
-   <div class="banner-left"><img src="../../images/banner_left.gif" width="17" height="56" border="0" alt="" /></div>
+   <div class="banner-left"><img src="../images/banner_left.gif" width="17" height="56" border="0" alt="" /></div>
    <div class="banner-text">Mailing List Archives</a></div>
-   <div class="banner-right"><img src="../../images/banner_right.gif" width="10" height="56" alt="" /></div>
+   <div class="banner-right"><img src="../images/banner_right.gif" width="10" height="56" alt="" /></div>
   </div>
   <div id="topnav">
    <a href="/">home</a>
    |
-   <a href="../../search.php">search</a>
+   <a href="../search.php">search</a>
    |
    <a href="..">other lists</a>
   </div>
