@@ -24,7 +24,7 @@ if test -r /var/run/mlmmj-webarchiver.pid; then
   MPID=$(< /var/run/mlmmj-webarchiver.pid)
   echo "PID: $MPID"
   if $(kill -CHLD $MPID >/dev/null 2>&1); then
-    test "$VERBOSE" && echo "mlmml-webarchiver is already running."
+    test "x${VERBOSE}" = "xyes" && echo "mlmml-webarchiver is already running."
     exit 0
   fi
 fi
@@ -92,13 +92,13 @@ for wlist in $WEBARCHIVED_LISTS; do
                 WEBARCHIVE_OUT=${WEBARCHIVE_TMP}
         fi
 
-        test $VERBOSE && echo "+ working on $wlist..."
+        test "x${VERBOSE}" = "xyes" && echo "+ working on $wlist..."
         # first we need to get the current index, and if no index
         # exist, skip this list
         if [ -r "${MLMMJ_LISTDIR}/${wlist}/index" ]; then
                 CURINDEX=$(cat ${MLMMJ_LISTDIR}/${wlist}/index)
         else
-                test $VERBOSE && echo "- skipping $wlist - no mails yet."
+                test "x${VERBOSE}" = "xyes" && echo "- skipping $wlist - no mails yet."
                 continue;
         fi
 
@@ -108,7 +108,7 @@ for wlist in $WEBARCHIVED_LISTS; do
 
         # skip the list if we're already up2date
         if [ "$CURINDEX" = "$LASTINDEX" ] && [ "$LASTINDEX" != "1" ]; then
-                test $VERBOSE && echo "- skipping $wlist - already up2date."
+                test "x${VERBOSE}" = "xyes" && echo "- skipping $wlist - already up2date."
                 continue;
         fi
 
@@ -137,7 +137,7 @@ for wlist in $WEBARCHIVED_LISTS; do
         # this is currently only "useable/usefull" for apache and compatible servers.
         # maybe we need a more general way for generating this stuff? FIXME
         if [ -f "${MLMMJ_LISTDIR}/${wlist}/control/webarchiveprotected" ]; then
-                test $VERBOSE && echo "+ protecting webarchive of $wlist."
+                test "x${VERBOSE}" = "xyes" && echo "+ protecting webarchive of $wlist."
                 echo "AuthType $AUTHTYPE" > "${WEBARCHIVE_OUT}/${wlist}/.htaccess"
                 echo "AuthName \"${wlist} archives\"" >> "${WEBARCHIVE_OUT}/${wlist}/.htaccess"
                 echo "AuthUserFile ${MLMMJ_LISTDIR}/${wlist}/control/webarchiveprotected" >> "${WEBARCHIVE_OUT}/${wlist}/.htaccess"
@@ -146,7 +146,7 @@ for wlist in $WEBARCHIVED_LISTS; do
         else
         # and need to remove it, if no more protection is wanted.
                 if [ -f "${WEBARCHIVE_OUT}/${wlist}/.htaccess" ]; then
-                        test $VERBOSE && echo "+ remove protection from webarchive of $wlist."
+                        test "x${VERBOSE}" = "xyes" && echo "+ remove protection from webarchive of $wlist."
                         rm "${WEBARCHIVE_OUT}/${wlist}/.htaccess"
                 fi
         fi
@@ -193,7 +193,7 @@ for wlist in $WEBARCHIVED_LISTS; do
             THISMONTH=$(getmailmonth "${MLMMJ_LISTDIR}/${wlist}/archive/${listmail}")
 
             if [ "$THISMONTH" != "$LASTMONTH" ]; then
-              test $VERBOSE && echo "+ creating $THISMONTH for $wlist"
+              test "x${VERBOSE}" = "xyes" && echo "+ creating $THISMONTH for $wlist"
               LASTMONTH=$THISMONTH
             fi
 
