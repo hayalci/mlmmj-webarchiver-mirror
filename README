@@ -34,7 +34,7 @@ IMPORTANT!!!
 -------------
 
 You need the following binaries installed:
-- hypermail
+- mhonarc
 - perl (for getting the file creation times)
 - cat
 - mkdir
