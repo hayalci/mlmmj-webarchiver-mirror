@@ -83,6 +83,9 @@ done
 # now we have a list to work on, lets work on it!
 for wlist in $WEBARCHIVED_LISTS; do
 
+		# DTC hosting panel names list directories as sitename_listname
+		#listname=$(cut -d"_" -f2 <<< $wlist)
+		listname=$wlist
         # set LASTINDEX to 1 (we'll override that later)
         LASTINDEX="1"
 
@@ -103,8 +106,8 @@ for wlist in $WEBARCHIVED_LISTS; do
         fi
 
         # then we need to know at which index we last build the webdir
-        test -f "${WEBARCHIVE_OUT}/${wlist}/.lastindex" && \
-                LASTINDEX=$(cat ${WEBARCHIVE_OUT}/${wlist}/.lastindex) 
+        test -f "${WEBARCHIVE_OUT}/${listname}/.lastindex" && \
+                LASTINDEX=$(cat ${WEBARCHIVE_OUT}/${listname}/.lastindex) 
 
         # skip the list if we're already up2date
         if [ "$CURINDEX" = "$LASTINDEX" ] && [ "$LASTINDEX" != "1" ]; then
@@ -126,10 +129,10 @@ for wlist in $WEBARCHIVED_LISTS; do
 
         # check if list already has a webarchive directory and create one if not
         # also copy the new index into the dir, if one was given.
-        if [ ! -d "${WEBARCHIVE_OUT}/${wlist}" ]; then
-          mkdir -p -m ${DIRMODES} "${WEBARCHIVE_OUT}/${wlist}"
+        if [ ! -d "${WEBARCHIVE_OUT}/${listname}" ]; then
+          mkdir -p -m ${DIRMODES} "${WEBARCHIVE_OUT}/${listname}"
           if [ -n "$NEW_LIST_INDEX" ]; then
-            cp ${NEW_LIST_INDEX} ${WEBARCHIVE_OUT}/${wlist}/index.php
+            cp ${NEW_LIST_INDEX} ${WEBARCHIVE_OUT}/${listname}/index.php
           fi
         fi
 
@@ -138,16 +141,16 @@ for wlist in $WEBARCHIVED_LISTS; do
         # maybe we need a more general way for generating this stuff? FIXME
         if [ -f "${MLMMJ_LISTDIR}/${wlist}/control/webarchiveprotected" ]; then
                 test "x${VERBOSE}" = "xyes" && echo "+ protecting webarchive of $wlist."
-                echo "AuthType $AUTHTYPE" > "${WEBARCHIVE_OUT}/${wlist}/.htaccess"
-                echo "AuthName \"${wlist} archives\"" >> "${WEBARCHIVE_OUT}/${wlist}/.htaccess"
-                echo "AuthUserFile ${MLMMJ_LISTDIR}/${wlist}/control/webarchiveprotected" >> "${WEBARCHIVE_OUT}/${wlist}/.htaccess"
-                echo "AuthGroupFile /dev/null" >> "${WEBARCHIVE_OUT}/${wlist}/.htaccess"
-                echo "require valid-user" >> "${WEBARCHIVE_OUT}/${wlist}/.htaccess"
+                echo "AuthType $AUTHTYPE" > "${WEBARCHIVE_OUT}/${listname}/.htaccess"
+                echo "AuthName \"${wlist} archives\"" >> "${WEBARCHIVE_OUT}/${listname}/.htaccess"
+                echo "AuthUserFile ${MLMMJ_LISTDIR}/${wlist}/control/webarchiveprotected" >> "${WEBARCHIVE_OUT}/${listname}/.htaccess"
+                echo "AuthGroupFile /dev/null" >> "${WEBARCHIVE_OUT}/${listname}/.htaccess"
+                echo "require valid-user" >> "${WEBARCHIVE_OUT}/${listname}/.htaccess"
         else
         # and need to remove it, if no more protection is wanted.
-                if [ -f "${WEBARCHIVE_OUT}/${wlist}/.htaccess" ]; then
+                if [ -f "${WEBARCHIVE_OUT}/${listname}/.htaccess" ]; then
                         test "x${VERBOSE}" = "xyes" && echo "+ remove protection from webarchive of $wlist."
-                        rm "${WEBARCHIVE_OUT}/${wlist}/.htaccess"
+                        rm "${WEBARCHIVE_OUT}/${listname}/.htaccess"
                 fi
         fi
 
@@ -197,25 +200,25 @@ for wlist in $WEBARCHIVED_LISTS; do
               LASTMONTH=$THISMONTH
             fi
 
-            if [ ! -d "${WEBARCHIVE_OUT}/${wlist}/${THISMONTH}" ]; then
-              mkdir -m ${DIRMODES} "${WEBARCHIVE_OUT}/${wlist}/${THISMONTH}"
+            if [ ! -d "${WEBARCHIVE_OUT}/${listname}/${THISMONTH}" ]; then
+              mkdir -m ${DIRMODES} "${WEBARCHIVE_OUT}/${listname}/${THISMONTH}"
             fi
 
-            $MHONARC $LIST_MHONARC_CMDS -outdir ${WEBARCHIVE_OUT}/${wlist}/${THISMONTH} -add < \
+            $MHONARC $LIST_MHONARC_CMDS -outdir ${WEBARCHIVE_OUT}/${listname}/${THISMONTH} -add < \
               ${MLMMJ_LISTDIR}/${wlist}/archive/${listmail} > /dev/null
           #else
-          #  $MHONARC $LIST_MHONARC_CMDS -outdir ${WEBARCHIVE_OUT}/${wlist} -add < \
+          #  $MHONARC $LIST_MHONARC_CMDS -outdir ${WEBARCHIVE_OUT}/${listname} -add < \
           #    ${MLMMJ_LISTDIR}/${wlist}/archive/${listmail} > /dev/null
           #fi
 
           if [ "$?" = "0" ]; then
-            echo ${listmail} > ${WEBARCHIVE_OUT}/${wlist}/.lastindex
+            echo ${listmail} > ${WEBARCHIVE_OUT}/${listname}/.lastindex
           fi
         done
 
         # create zip of archive if wanted
 #       if [ -f "${MLMMJ_LISTDIR}/${wlist}/control/webarchivecreatezip" ]; then
-#               zip -9 -q -r -j "${WEBARCHIVE_OUT}/${wlist}/${wlist}-archive.zip" "${MLMMJ_LISTDIR}/${wlist}/archive"
+#               zip -9 -q -r -j "${WEBARCHIVE_OUT}/${listname}/${wlist}-archive.zip" "${MLMMJ_LISTDIR}/${wlist}/archive"
 #       fi
 
         WEBARCHIVE_OUT=${WEBARCHIVE_TMP}
