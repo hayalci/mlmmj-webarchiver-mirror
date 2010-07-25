@@ -83,9 +83,9 @@ done
 # now we have a list to work on, lets work on it!
 for wlist in $WEBARCHIVED_LISTS; do
 
-		# DTC hosting panel names list directories as sitename_listname
-		#listname=$(cut -d"_" -f2 <<< $wlist)
-		listname=$wlist
+        # DTC hosting panel names list directories as sitename_listname
+        #listname=$(cut -d"_" -f2 <<< $wlist)
+        listname=$wlist
         # set LASTINDEX to 1 (we'll override that later)
         LASTINDEX="1"
 
@@ -93,6 +93,13 @@ for wlist in $WEBARCHIVED_LISTS; do
         WEBARCHIVE_TMP=$(< ${MLMMJ_LISTDIR}/${wlist}/control/webarchive)
         if test -n "${WEBARCHIVE_TMP}"; then
                 WEBARCHIVE_OUT=${WEBARCHIVE_TMP}
+        fi
+
+        if [ ! -d "${WEBARCHIVE_OUT}" ]; then
+          mkdir -p -m ${DIRMODES} "${WEBARCHIVE_OUT}"
+        fi
+        if [ -n "${SKEL}" -a ! -f "${WEBARCHIVE_OUT}/index.php" ]; then
+          cp -r ${SKEL}/* ${WEBARCHIVE_OUT}/
         fi
 
         test "x${VERBOSE}" = "xyes" && echo "+ working on $wlist..."
@@ -120,20 +127,13 @@ for wlist in $WEBARCHIVED_LISTS; do
         unset MHONARC_RC
         LIST_MHONARC_CMDS="$MHONARC_CMDS"
 
-        if [ ! -d "${WEBARCHIVE_OUT}" ]; then
-          mkdir -p -m ${DIRMODES} "${WEBARCHIVE_OUT}"
-          if [ -n "${SKEL}" ]; then
-            cp -r ${SKEL}/* ${WEBARCHIVE_OUT}/
-          fi
-        fi
-
         # check if list already has a webarchive directory and create one if not
         # also copy the new index into the dir, if one was given.
         if [ ! -d "${WEBARCHIVE_OUT}/${listname}" ]; then
           mkdir -p -m ${DIRMODES} "${WEBARCHIVE_OUT}/${listname}"
-          if [ -n "$NEW_LIST_INDEX" ]; then
-            cp ${NEW_LIST_INDEX} ${WEBARCHIVE_OUT}/${listname}/index.php
-          fi
+        fi
+        if [ -n "$NEW_LIST_INDEX" -a ! -f "${WEBARCHIVE_OUT}/${listname}/index.php" ]; then
+          cp ${NEW_LIST_INDEX} ${WEBARCHIVE_OUT}/${listname}/index.php
         fi
 
         # if the archive should be protected, we need to create a .htaccess file
