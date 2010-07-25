@@ -20,15 +20,15 @@ else
 fi
 
 # allow only one instance of mlmmj-webarchiver
-if test -r /var/run/mlmmj-webarchiver.pid; then
-  MPID=$(< /var/run/mlmmj-webarchiver.pid)
+if test -r $PIDFILE; then
+  MPID=$(< $PIDFILE)
   echo "PID: $MPID"
   if $(kill -CHLD $MPID >/dev/null 2>&1); then
     test "x${VERBOSE}" = "xyes" && echo "mlmml-webarchiver is already running."
     exit 0
   fi
 fi
-echo $$ > /var/run/mlmmj-webarchiver.pid
+echo $$ > $PIDFILE
 
 ##
 ## mlmmj-webarchiver functions
@@ -221,4 +221,4 @@ for wlist in $WEBARCHIVED_LISTS; do
         WEBARCHIVE_OUT=${WEBARCHIVE_TMP}
 done
 
-rm /var/run/mlmmj-webarchiver.pid 2>/dev/null
+rm $PIDFILE 2>/dev/null
