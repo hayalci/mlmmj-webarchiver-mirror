@@ -23,13 +23,13 @@
    <div class="banner-right"><img src="../../images/banner_right.gif" width="10" height="56" alt="" /></div>
   </div>
   <div id="topnav">
-   <a href="/">home</a>
+   <a href="/">Ana Sayfa</a>
    |
-   <a href="..">month and year index</a>
+   <a href="..">Ay ve yıla göre</a>
    |
-   <a href="$TIDXFNAME$#$MSGNUM$">thread index</a>
+   <a href="$TIDXFNAME$#$MSGNUM$">Konu başlığına göre</a>
    |
-   <a href="$IDXFNAME$#$MSGNUM$">date index</a>
+   <a href="$IDXFNAME$#$MSGNUM$">Tarihe göre</a>
   </div>
  </div>
  <div id="mailinglists">
@@ -37,7 +37,6 @@
 </MSGPGBEGIN>
 
 <MSGPGEND>
-   <address>Archive administrator: postmaster@lists.cynapses.org</address>
   </div>
  </div>
 </body>
@@ -131,32 +130,31 @@
    <div class="banner-right"><img src="../../images/banner_right.gif" width="10" height="56" alt="" /></div>
   </div>
   <div id="topnav">
-   <a href="/">home</a>
+   <a href="/">Ana Sayfa</a>
    |
-   <a href="..">month and year index</a>
+   <a href="..">Ay ve yıla göre</a>
    |
-   <a href="$TIDXFNAME$">thread index</a>
+   <a href="$TIDXFNAME$">Konu başlığına göre</a>
    |
-   <a href="$IDXFNAME$">date index</a>
+   <a href="$IDXFNAME$">Tarihe göre</a>
   </div>
  </div>
  <div id="mailinglists">
   <div id="main">
-<h1>Date Index</h1>
+<h1>Tarihe göre iletiler</h1>
 <div id="didx">
 <ul>
 </LISTBEGIN>
 
 <LITEMPLATE>
 <li><strong>$SUBJECT$</strong>
-<ul><li><em>From</em>: $FROM$</li></ul>
+<ul><li><em>Kimden</em>: $FROM$</li></ul>
 </li>
 </LITEMPLATE>
 
 <LISTEND>
 </ul>
 </div>
-   <address>Archive administrator: postmaster.cynapses.org</address>
   </div>
  </div>
 </LISTEND>
@@ -181,18 +179,18 @@
    <div class="banner-right"><img src="../../images/banner_right.gif" width="10" height="56" alt="" /></div>
   </div>
   <div id="topnav">
-   <a href="/">home</a>
+   <a href="/">Ana Sayfa</a>
    |
-   <a href="..">month and year index</a>
+   <a href="..">Ay ve yıla göre</a>
    |
-   <a href="$TIDXFNAME$">thread index</a>
+   <a href="$TIDXFNAME$">Konu başlığına göre</a>
    |
-   <a href="$IDXFNAME$">date index</a>
+   <a href="$IDXFNAME$">Tarihe göre</a>
   </div>
  </div>
  <div id="mailinglists">
   <div id="main">
-<h1>Thread Index</h1>
+<h1>Konu başlığına göre iletiler</h1>
 <div id="tidx">
 <ul>
 </THEAD>
@@ -200,7 +198,6 @@
 <TFOOT>
 </ul> 
 </div>
-   <address>Archive administrator: postmaster.cynapses.org</address>
   </div>
  </div>
 </TFOOT>
@@ -234,7 +231,7 @@
 <FOLUPBEGIN>
 <div id="followups">
 <table>
- <caption>Follow-Ups:</caption>
+ <caption>Cevaplar:</caption>
 </FOLUPBEGIN>
  
 <FOLUPLITXT>
@@ -262,7 +259,7 @@
 <REFSBEGIN>
 <div id="references">
 <table>
- <caption>References:</caption>
+ <caption>Önceki iletiler:</caption>
 </REFSBEGIN>
  
 <REFSLITXT>

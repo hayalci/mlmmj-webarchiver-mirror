@@ -19,29 +19,27 @@ foreach($files as $k => $file) {
 }
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html lang="en">
+<html lang="tr">
 <head>
-<title><?php echo $mlist;?> archives by month and year</title>
+<title><?php echo $mlist;?> Ay ve yıla göre arşivler</title>
  <link rel="stylesheet" type="text/css" media="screen" href="../style/screen.css">
 </head>
 <body>
  <div id="banner">
   <div id="header">
    <div class="banner-left"><img src="../images/banner_left.gif" width="17" height="56" border="0" alt="" /></div>
-   <div class="banner-text">Mailing List Archives</a></div>
+   <div class="banner-text">E-posta Liste Arşivleri</a></div>
    <div class="banner-right"><img src="../images/banner_right.gif" width="10" height="56" alt="" /></div>
   </div>
   <div id="topnav">
-   <a href="/">home</a>
+   <a href="/">Ana sayfa</a>
    |
-   <a href="../search.php">search</a>
-   |
-   <a href="..">other lists</a>
+   <a href="..">Diğer Listeler</a>
   </div>
  </div>
  <div id="mailinglists">
   <div id="main">
-  <h1><?php echo $mlist;?> archives by month and year</h1>
+  <h1><?php echo $mlist;?> Ay ve yıla göre arşivler</h1>
   <?php echo $archived_months; ?>
   </div>
  </div>
